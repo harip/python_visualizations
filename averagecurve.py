@@ -12,9 +12,5 @@ COL_NAMES = [colname for colname in PERF_DATA.columns.values if "Age_" in colnam
 AVG_VALUES = pd.Series([PERF_DATA[col_name].mean() for col_name in COL_NAMES])
 
 # plot series
-FIG, AX = plt.subplots(nrows=1, ncols=1)
-FIG.set_size_inches(5.33,4)
-AX.plot(AVG_VALUES, color='black', zorder=2)
-AX.set_ylim([0, 100])
-FIG.savefig('img/avgcurve.png',pad_inches=0,bbox_inches='tight')
+AVG_VALUES.plot(kind='line', grid=True, ylim={0, 100})
 plt.show()
