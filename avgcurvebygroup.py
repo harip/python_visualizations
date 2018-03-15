@@ -21,5 +21,5 @@ for group in GROUPS:
     group_avg_values = pd.Series(group_means, name=group_name)
     PERF_AVGDATA_GROUPS = PERF_AVGDATA_GROUPS.append(group_avg_values)
 
-PERF_AVGDATA_GROUPS.T.plot()
+PERF_AVGDATA_GROUPS.T.plot(ylim={0,100})
 plt.show()
