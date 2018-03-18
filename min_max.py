@@ -4,8 +4,8 @@ import numpy as np
 import calendar as cl
 from matplotlib.pyplot import figure, show, cm
 
-def weather_pattern(file_name):
-    df=pd.read_csv('data/C2A2_data/BinnedCsvs_d400/{}.csv'.format(file_name))
+def weather_pattern():
+    df=pd.read_csv('https://res.cloudinary.com/harip/raw/upload/v1521364790/site/python/fb441e62df2d58994928907a91895ec62c2c42e6cd075c2700843b89.csv')
     df=df.drop(['ID'],axis=1)
     
     # Group by date, create seperate dataframes for tmin and tmax and merge 
@@ -98,4 +98,4 @@ def weather_pattern(file_name):
     # Show the plot
     plt.show()
 
-weather_pattern('fb441e62df2d58994928907a91895ec62c2c42e6cd075c2700843b89')
+weather_pattern()
