@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 DATA_URL = "https://res.cloudinary.com/harip/raw/upload/v1521364790/site/python/minmax.csv"
-XLIM=[1, 365]
-YLIM=[-40, 50]
+XLIM = [1, 365]
+YLIM = [-40, 50]
 
 def prep_initial_data():
     """Drop unused column and group by columns"""
@@ -38,7 +38,7 @@ def basic_chart_settings(chart_plot):
 
 def weather_pattern():
     """Function that creates the chart"""
-    df_main = prep_initial_data()    
+    df_main = prep_initial_data()
 
     # Create a pivot,  tmax and tmin will become columns,  split date in year, month, day
     # Determine the day of the year
@@ -88,7 +88,6 @@ def weather_pattern():
     # Plot the line data and apply a gradient to the entire chart
     chart_fig, chart_plot = plt.subplots(nrows=1, ncols=1)
     chart_fig.canvas.draw()
-     
     chart_plot.plot(x_values, max_values, zorder=1, linewidth=0)
     chart_plot.plot(x_values, min_values, zorder=1, linewidth=0)
 
@@ -96,12 +95,12 @@ def weather_pattern():
     chart_plot.scatter(df_record["X"].values, df_record["Y"].values, zorder=2, color='b', label="Record 2015 Temperature", alpha=0.75)
 
     # Hide the major tick labels (ticks are visible)
-    # Hide the minor ticks (tick labels which are months are visible)     
+    # Hide the minor ticks (tick labels which are months are visible)
     chart_plot.set_xticklabels(x_minor_labels, minor=True, fontsize=7.5)
     chart_plot.set_xticks(x_ticks)
     chart_plot.set_xticks(x_minor_ticks, minor=True)
-    basic_chart_settings(chart_plot)  
-    
+    basic_chart_settings(chart_plot)
+
     # Fill area from the TMAX line to the top of chart with white color
     # Fill area from the TMIN line to the bottom of chart with white color
     # This will cause the gradient to showup only between the TMAX and TMIN
