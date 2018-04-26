@@ -23,7 +23,7 @@ def get_distribution_chart(box, parent_yaxis, y_values, x_values, parent_xlim):
     hist_chart.barh(y_values, x_values, align='center', color='lightgray', zorder=1)
     return hist_chart
 
-PERF_DATA = pd.read_csv('timeseries.csv')
+PERF_DATA = pd.read_csv('https://res.cloudinary.com/harip/raw/upload/v1520830685/timeseries.csv')
 GROUP = 3
 PERF_GROUP_DATA = PERF_DATA[PERF_DATA['Group'] == GROUP]
 COL_NAMES = [colname for colname in PERF_GROUP_DATA.columns.values if "Age_" in colname]
